@@ -2,7 +2,13 @@
 
 <ul>
   {% for todo in todos %}
-  <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}</li>
+  <li><a href="/todos/details/{{todo.id}}">
+    {% if todo.done %}
+      <s>{{todo.title}}</s>
+    {% else %}
+      {{todo.title}}
+    {% endif %}
+  </a>: {{todo.text}}</li>
   {% endfor %}
 </ul>
 
